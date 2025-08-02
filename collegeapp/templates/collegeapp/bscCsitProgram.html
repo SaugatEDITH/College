@@ -1,0 +1,171 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %} ">
+<link rel="stylesheet" href="{% static 'css/programs.css' %} ">
+{% endblock subcss %}
+<!-- Hero section starts from here -->
+{% block content %}
+<div class="grid-container">
+    <!-- Sidebar -->
+    <div class="sidebar" data-aos="fade-up">
+        <a href="{% url 'about' %}" class="sidebar-link">About HCC</a>
+        <a href="{% url 'leadership' %}" class="sidebar-link">Leadership</a>
+        <a href="{% url 'ourteam' %}" class="sidebar-link">Our Team</a>
+        <a href="{% url 'bca_program' %}" class="sidebar-link">BCA Program</a>
+        <a href="{% url 'bsc_csit_program' %}" class="sidebar-link">BSc CSIT Program</a>
+        <a href="{% url 'plus2_program' %}" class="sidebar-link">Plus 2 Program</a>
+        <a href="{% url 'bbs_program' %}" class="sidebar-link">BBS Program</a>
+        <a href="{% url 'notice' %}" class="sidebar-link">Notices</a>
+        <a href="{% url 'faq' %}" class="sidebar-link">FAQs</a>
+        <a href="{% url 'applyonline' %}" class="sidebar-link">Apply Online</a>
+        <a href="{% url 'gallary' %}" class="sidebar-link">Gallery</a>
+        <a href="{% url 'contact' %}" class="sidebar-link">Contact</a>
+    </div>
+    
+    
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <h1>About BSc. CSIT and Syllabus</h1>
+
+        <!-- Main Image Section -->
+        <div class="main-image-container" data-aos="fade-right">
+            <img src="{% static 'images/college1.jpg' %}" alt="BSc. CSIT Program" class="main-image">
+        </div>
+
+        <p class="long-paragraph" data-aos="fade-up">
+            BSc. CSIT (Bachelor of Science in Computer Science and Information Technology) is an undergraduate program
+            that aims to provide a solid foundation in computer science, information technology, and related fields. The
+            program typically spans four years and covers a wide range of topics, including programming, data structures,
+            algorithms, networking, database management, artificial intelligence, and web development.
+            <br>
+            The curriculum is designed to equip students with the skills necessary to pursue careers in various domains of
+            IT and computer science. Graduates of BSc. CSIT are prepared to work in software development, network administration,
+            IT consulting, and many other fields in the rapidly growing tech industry.
+        </p>
+
+        <!-- Mission of BSc. CSIT Section -->
+        <h2 class="section-title">Mission of BSc. CSIT</h2>
+        <ol class="content-list">
+            <li>To provide quality education in computer science and information technology.</li>
+            <li>To develop problem-solving and technical skills in students through hands-on learning.</li>
+            <li>To prepare students for careers in the ever-evolving tech industry.</li>
+            <li>To foster critical thinking, research, and innovation in the field of computer science.</li>
+        </ol>
+
+        <!-- Scope of BSc. CSIT Section -->
+        <h2 class="section-title">Scope of BSc. CSIT</h2>
+        <ol class="content-list">
+            <li>BSc. CSIT graduates have excellent career prospects in software development, IT consulting, and data science.</li>
+            <li>They can pursue higher studies such as MSc in Computer Science, MCA, or even an MBA in Information Technology.</li>
+            <li>Graduates are in demand across various industries, including software development, e-commerce, finance, and healthcare.</li>
+            <li>Career roles include system analysts, programmers, IT consultants, network engineers, and more.</li>
+        </ol>
+
+        <!-- Applications of BSc. CSIT Section -->
+        <h2 class="section-title">Applications of BSc. CSIT</h2>
+        <ol class="content-list">
+            <li>Software Development: Developing applications for various industries and platforms.</li>
+            <li>Database Management: Managing and optimizing databases for organizations.</li>
+            <li>Networking: Designing and managing computer networks for businesses and institutions.</li>
+            <li>Web Development: Building websites and web applications for businesses and individuals.</li>
+            <li>Cybersecurity: Protecting systems and networks from security threats and cyber attacks.</li>
+        </ol>
+
+        <!-- Eligibility Criteria Section -->
+        <h2 class="section-title">Eligibility Criteria</h2>
+        <ol class="content-list">
+            <li>Completion of higher secondary education (12th grade) or equivalent in any stream (Science, Commerce, Arts).</li>
+            <li>A minimum of 50% marks in the 12th grade (varies by institution).</li>
+            <li>Proficiency in mathematics and science subjects at the secondary level is preferred.</li>
+            <li>Some institutions may require an entrance exam for admission.</li>
+        </ol>
+
+        <!-- Admission Criteria Section -->
+        <h2 class="section-title">Admission Criteria</h2>
+        <ol class="content-list">
+            <li>Submit the completed application form along with the necessary documents (academic certificates, identity proof, etc.).</li>
+            <li>Appear for the entrance examination (if applicable) or a personal interview as per the institution's requirements.</li>
+            <li>Shortlisted candidates will be notified for counseling and admission confirmation.</li>
+            <li>Final admission will be based on merit and the candidate's performance in the entrance exam or interview.</li>
+        </ol>
+
+        <!-- BSc. CSIT Syllabus Section -->
+        <h2 class="section-title">BSc. CSIT Syllabus</h2>
+        <div class="syllabus-content">
+            <h4 class="section-title">1st Semester</h4>
+            <ul class="course-list">
+                <li>Mathematics-I</li>
+                <li>Computer Fundamentals</li>
+                <li>Principles of Programming</li>
+                <li>English Communication-I</li>
+                <li>Introduction to IT</li>
+            </ul>
+
+            <h4 class="section-title">2nd Semester</h4>
+            <ul class="course-list">
+                <li>Mathematics-II</li>
+                <li>Digital Logic Design</li>
+                <li>Object-Oriented Programming in C++</li>
+                <li>Environmental Science</li>
+                <li>Principles of Economics</li>
+            </ul>
+
+            <h4 class="section-title">3rd Semester</h4>
+            <ul class="course-list">
+                <li>Data Structures</li>
+                <li>Computer Networks</li>
+                <li>Discrete Mathematics</li>
+                <li>Database Management Systems</li>
+                <li>Operating Systems</li>
+            </ul>
+
+            <h4 class="section-title">4th Semester</h4>
+            <ul class="course-list">
+                <li>Algorithms</li>
+                <li>Software Engineering</li>
+                <li>System Analysis & Design</li>
+                <li>Web Technology</li>
+                <li>Computer Graphics</li>
+            </ul>
+
+            <h4 class="section-title">5th Semester</h4>
+            <ul class="course-list">
+                <li>Database Management Systems-II</li>
+                <li>Software Development and Design</li>
+                <li>Data Science & Analytics</li>
+                <li>Computer Organization and Architecture</li>
+                <li>Object-Oriented Design</li>
+            </ul>
+
+            <h4 class="section-title">6th Semester</h4>
+            <ul class="course-list">
+                <li>Mobile App Development</li>
+                <li>Artificial Intelligence</li>
+                <li>Cloud Computing</li>
+                <li>Network Security</li>
+                <li>Advanced Programming in Java</li>
+            </ul>
+
+            <h4 class="section-title">7th Semester</h4>
+            <ul class="course-list">
+                <li>Advanced Databases</li>
+                <li>Machine Learning</li>
+                <li>Big Data and Hadoop</li>
+                <li>Internships</li>
+                <li>Elective I</li>
+            </ul>
+
+            <h4 class="section-title">8th Semester</h4>
+            <ul class="course-list">
+                <li>Data Warehousing and Mining</li>
+                <li>Final Year Project</li>
+                <li>Elective II</li>
+                <li>Elective III</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

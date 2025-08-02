@@ -1,0 +1,78 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/notice.css' %}">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+{% endblock subcss %}
+
+{% block content %}
+
+{% if not notices %}
+<section id="news-header">
+	<h1>No Notices For Now!</h1>
+	<p>Stay informed about our college activities and announcements</p>
+</section>
+{% else %}
+<section id="news-header">
+	<h1>Latest Notices & Updates</h1>
+	<p>Stay informed about our college activities and announcements</p>
+</section>
+{% endif %}
+
+
+<section id="blog-container">
+	<div class="card-container">
+		{% for notice in notices %}
+		<div class="card">
+			<div class="card-header">
+				{% if not notice.image %}
+				<img src="{% static 'images/noimage.jpeg' %}" alt="No Image Available" />
+				{% else %}
+				<img src="{{notice.image.url}}" alt="{{ notice.title }}" />
+				{% endif %}
+			</div>
+			<div class="card-body">
+				<span class="tag tag-teal">Notice Alert⚠️</span>
+				<a href="notice/{{notice.slug}}">
+					<h4>{{notice.title}}</h4>
+				</a>
+				<div class="user">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk5ACcLEbAfc-kyDUiDksw18XLSYh10cuAgw&s"
+						alt="" />
+					<div class="user-info">
+						<h5>Hetauda City College</h5>
+						<small>{{notice.created_at}}</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+{% block javascript %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$("#news-slider").owlCarousel({
+			items: 3,
+			margin: 30,
+			loop: true,
+			nav: true,
+			dots: true,
+			autoplay: true,
+			autoplayTimeout: 5000,
+			responsive: {
+				0: { items: 1 },
+				768: { items: 2 },
+				992: { items: 3 }
+			}
+		});
+	});
+</script>
+{% endblock javascript %}
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %} ">
+<link rel="stylesheet" href="{% static 'css/leadership.css' %} ">
+{% endblock subcss %}
+{% block content %}
+<div class="gridd_container">
+    <div class="sidebar" data-aos="fade-up">
+        <a href="/about" class="sidebar_a">About HCC Why HCCSS Faculty Office Hours Organizational Structure
+            Facts And Figures Department Of HCCSS.</a>
+    </div>
+    <main class="mainn">
+        <h1>Leadership</h1>
+        <div class="main_img_div" data-aos="fade-right">
+            <img src="{% static 'images/principal.jpg' %}" alt="" class="main_img" />
+        </div>
+
+        <p class="long_paragraph" data-aos="fade-up">
+            Leadership in an Information Technology college is crucial to ensuring
+            the success of both students and faculty. Effective leaders in HCC
+            possess a strong understanding of the industry and the ability to
+            inspire and guide students to reach their full potential. One of the
+            key responsibilities of a leader in an HCC is to stay current with the
+            latest developments and trends in the field, and to ensure that the
+            curriculum and resources available to students are up-to-date and
+            relevant.
+            <br />
+            <br />
+            Effective leaders in HCC also understand the importance of fostering a
+            culture of innovation and creativity. They encourage students to think
+            critically and to take risks in order to push the boundaries of what
+            is possible. They also create opportunities for students to
+            collaborate and work on real-world projects, which helps to prepare
+            them for the challenges they will face in their future careers.
+            <br />
+            <br />
+            In addition to fostering a culture of innovation, leaders in HCC also
+            prioritize the development of soft skills such as communication,
+            teamwork, and problem-solving. These skills are essential for success
+            in the modern workforce, and leaders in HCC ensure that
+            students are well-equipped to navigate the complex and
+            rapidly-changing landscape of the technology industry. By focusing on
+            both technical and soft skills, leaders in IT colleges can help to
+            prepare students for long-term success in the field.
+        </p>
+    </main>
+</div>
+
+{% endblock content %}

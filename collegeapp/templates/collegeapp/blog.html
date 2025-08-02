@@ -1,0 +1,63 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %} ">
+<link rel="stylesheet" href="{% static 'css/blog.css' %} ">
+{% endblock subcss %}
+{% block content %}
+<!-- Hero section starts from here -->
+{% if not blogs %}
+<!-- <center>
+	<h2 class="no-data">Blogs are Comming Soon...</h2>
+</center> -->
+<section id="about-home">
+	<h2>
+		No Blogs
+	</h2>
+</section>
+{%else%}
+<!-- Hero section ends from here -->
+<section id="about-home">
+	<h2>
+		Blogs
+	</h2>
+</section>
+
+<!-- Blog container starts from here -->
+
+
+<section id="blog-container">
+	<div class="card-container">
+		{% for blog in blogs %}
+		<div class="card">
+			<div class="card-header">
+				{% if not blog.image %}
+				<img src="{% static 'images/noimage.jpeg' %}" alt="No Image Available" />
+				{%else%}
+				<img src="{{blog.image.url}}" alt="{{ blog.title }}" />
+				{% endif %}
+			</div>
+			<div class="card-body">
+				<span class="tag tag-teal">{{blog.category}}</span>
+				<a href="blog/{{blog.slug}}">
+					<h4>{{blog.title}}</h4>
+				</a>
+				<p>
+					{{blog.content| truncatechars:80}}
+				</p>
+				<div class="user">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk5ACcLEbAfc-kyDUiDksw18XLSYh10cuAgw&s"
+						alt="" />
+					<div class="user-info">
+						<h5>Hetauda City College</h5>
+						<small>{{blog.created_at}}</small>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+{% endif %}
+<!-- Blog container ends from here -->
+{% endblock content %}

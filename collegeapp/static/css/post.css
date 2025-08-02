@@ -1,0 +1,94 @@
+/* Default Styles (For larger screens) */
+#blog-container .blogpost {
+    width: 60%;
+    margin: 0 auto !important;
+}
+
+#blog-container .blogpost p {
+    text-align: justify;
+    line-height: 1.6;
+}
+#blog-container .blogpost .post img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%; 
+    height: 30vh; 
+	max-height:30vh;
+    object-fit: cover;
+}
+
+/*------------------------------------------------------*/
+/*------------------ For Tablet screen -----------------*/
+/*------------------------------------------------------*/
+@media screen and (max-width: 789px) {
+    #blog-container .blogpost {
+        padding-top: 30px;
+        width: 90%; /* Increased width for better readability */
+    }
+
+    #blog-container .blogpost img {
+        width: 100%;
+        height: auto; /* Allow image to resize dynamically */
+        object-fit: cover;
+    }
+
+    #blog-container .blogpost h3 {
+        font-size: 1.5rem; /* Adjust title size for smaller screens */
+    }
+
+    #blog-container .blogpost p {
+        font-size: 1rem; /* Adjust font size for better readability */
+    }
+}
+
+/*------------------------------------------------------*/
+/*------------------ For Mobile screen -----------------*/
+/*------------------------------------------------------*/
+@media screen and (max-width: 475px) {
+    #blog-container .blogpost {
+        padding-top: 40px; /* Slightly smaller padding */
+        width: 90%;
+    }
+
+    #blog-container .blogpost img {
+        width: 100%;
+        height: 40vh; /* Reduced height for better proportion */
+        object-fit: cover;
+    }
+
+    #blog-container .blogpost h3 {
+        font-size: 1.3rem; /* Adjust title size for mobile screens */
+    }
+
+    #blog-container .blogpost p {
+        font-size: 0.95rem; /* Adjust font size slightly smaller */
+    }
+}
+
+/* Add some basic styles for better appearance */
+#blog-container .blogpost h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; /* Center-align the title */
+}
+
+#blog-container .blogpost img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: gives a rounded edge to the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add some shadow around images */
+}
+
+#blog-container .blogpost a {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #007bff; /* Link color */
+}
+
+#blog-container .blogpost a:hover {
+    text-decoration: underline;
+}

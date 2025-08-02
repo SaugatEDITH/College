@@ -1,0 +1,207 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %} ">
+<link rel="stylesheet" href="{% static 'css/course-inner.css' %} ">
+<link rel="stylesheet" href="{% static 'css/contact.css' %} ">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+<style>
+	.error-message-js {
+		color: red;
+		font-size: small;
+	}
+
+	.input-error {
+		border-color: red;
+	}
+
+	.error-placeholder {
+		height: 1em;
+	}
+</style>
+{% endblock subcss %}
+
+{% block content %}
+<div class="toast-container"></div>
+{% if messages %}
+{% for message in messages %}
+<script>
+	showToast("{{ message|escapejs }}", "{% if 'Success' in message %}success{% else %}error{% endif %}");
+	// Toaster
+	function showToast(message, type = "success") {
+		const toastContainer = document.querySelector(".toast-container");
+
+		const toast = document.createElement("div");
+		toast.classList.add("toast", type);
+
+		toast.innerHTML = `
+    <div class="toast-content">
+        <i class="fa-solid ${getIcon(type)}"></i>  <!-- Ensure fa-solid is used -->
+        <div class="message">
+            <span class="text text-1">${capitalize(type)}</span>
+            <span class="text text-2">${message}</span>
+        </div>
+    </div>
+    <i class="fa-solid fa-xmark close"></i>
+    <div class="progress active"></div>
+`;
+
+		toastContainer.appendChild(toast);
+		let showToast = setTimeout(() => {
+			void toast.offsetHeight;
+			toast.classList.add("active");
+		}, 1);
+
+		const progress = toast.querySelector(".progress");
+		const closeIcon = toast.querySelector(".close");
+
+		// Auto-remove toast after 5s
+		const timer1 = setTimeout(() => {
+			toast.classList.remove("active");
+		}, 5000);
+
+		const timer2 = setTimeout(() => {
+			progress.classList.remove("active");
+			setTimeout(() => toast.remove(), 400);
+		}, 5300);
+
+		// Manual close
+		closeIcon.addEventListener("click", () => {
+			toast.classList.remove("active");
+			clearTimeout(timer1);
+			clearTimeout(timer2);
+			clearTimeout(showToast);
+			setTimeout(() => toast.remove(), 400);
+		});
+	}
+
+	function getIcon(type) {
+		switch (type) {
+			case "success": return "fa-circle-check";
+			case "error": return "fa-circle-xmark"; 
+			case "warning": return "fa-triangle-exclamation";
+			case "info": return "fa-circle-info";
+			default: return "fa-circle-check";
+		}
+	}
+
+	function capitalize(str) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	}
+
+
+</script>
+{% endfor %}
+{% endif %}
+<!-- Hero section starts from here -->
+<section id="about-home">
+	<h2>
+		Contact Us
+	</h2>
+</section>
+<!-- Hero section ends from here -->
+
+
+<section id="contact">
+	<div class="getin">
+		<h2>Get in touch</h2>
+		<p>Looking for help? Fill the form and start a new adventure.</p>
+
+		<div class="getin-details">
+			<h3>Headquaters</h3>
+			<div>
+				<i class="fa-solid fa-map get"></i>
+				<p>744 New York Ave, Brooklyn, kings, New York 10224</p>
+			</div>
+
+			<h3>Phone</h3>
+			<div>
+				<i class="fas fa-phone-alt get"></i>
+				<p>(+91) 98671 23456 <br> (+91) 98671 23456</p>
+			</div>
+
+			<h3>Support</h3>
+			<div>
+				<i class="fa-solid fa-envelope get"></i>
+				<p>tech@educa.com <br> info@educa.com </p>
+			</div>
+
+			<h3>Follow Us</h3>
+			<div class="pro-links">
+				<i class="fab fa-facebook"></i>
+				<i class="fab fa-instagram"></i>
+				<i class="fab fa-linkedin-in"></i>
+				<i class="fab fa-behance"></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="form">
+		<form method="post" action="/contact">
+			{% csrf_token %}
+			<h4>Let's Connect</h4>
+			<p>Lorem ipsum, dolor sit amet consectetur.</p>
+			<div class="error-placeholder">
+				<div id="name-error" class="error-message-js"></div>
+			</div>
+			<div class="error-placeholder">
+				<div id="email-error" class="error-message-js"></div>
+			</div>
+			<div class="form-row">
+				<input type="text" name="name" id="name" placeholder="Your Name" required>
+				<!-- <div class="error-placeholder"><div id="name-error" class="error-message-js"></div></div> -->
+				<br>
+				<input type="email" name="email" id="email" placeholder="Your Email" required>
+				<!-- <div class="error-placeholder"><div id="email-error" class="error-message-js"></div></div> -->
+			</div>
+			<div class="form-col">
+				<input type="tel" name="phone" id="phone" placeholder="Phone no" required>
+				<div class="error-placeholder">
+					<div id="phone-error" class="error-message-js"></div>
+				</div>
+				<input type="text" name="subject" id="subject" placeholder="Subject line..." required>
+				<div class="error-placeholder">
+					<div id="subject-error" class="error-message-js"></div>
+				</div>
+			</div>
+			<div class="form-col">
+				<textarea name="message" id="message" cols="30" rows="8" placeholder="How can we help?"
+					required></textarea>
+			</div>
+			<div class="form-col">
+				<div class="g-recaptcha" data-sitekey="6Lf70JcrAAAAAMEsDvMRqMDdOaRhBbWMr0U6afea"></div>
+			</div>
+
+			<div class="form-col">
+				<button>Send Message</button>
+			</div>
+		</form>
+	</div>
+</section>
+
+
+<section id="map">
+	<!-- OG normal map v1 -->
+
+	<!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30711686.029386617!2d64.41853642919325!3d20.009139591170264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1652012148253!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
+	<!-- Map with key to embed v2 -->
+
+	<!-- <iframe 
+	src="https://www.google.com/maps/embed/v1/view?key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao&center=27.431027897910447,85.03193011251463&zoom=15"
+	style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe> -->
+
+	<!-- Map without key but rating to embed v3 -->
+
+	<iframe
+		src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.240249828675!2d85.0319662!3d27.4308069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb491c73aece01%3A0xfaab9c138c501b60!2sBuddha%20chowk%20(Gautam%20Buddha%20Statue)!5e0!3m2!1sen!2snp!4v1646493765425!5m2!1sen!2snp"
+		style="border:0;" allowfullscreen="" loading="lazy">
+	</iframe>
+
+</section>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+{% endblock content %}

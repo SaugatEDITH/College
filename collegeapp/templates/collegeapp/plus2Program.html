@@ -1,0 +1,97 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<link rel="stylesheet" href="{% static 'css/programs.css' %}">
+{% endblock subcss %}
+{% block content %}
+<div class="grid-container">
+    <!-- Sidebar -->
+    <div class="sidebar" data-aos="fade-up">
+        <a href="{% url 'home' %}" class="sidebar-link">Home</a>
+        <a href="{% url 'about' %}" class="sidebar-link">About HCC</a>
+        <a href="{% url 'leadership' %}" class="sidebar-link">Leadership</a>
+        <a href="{% url 'ourteam' %}" class="sidebar-link">Our Team</a>
+        <a href="{% url 'bca_program' %}" class="sidebar-link">BCA Program</a>
+        <a href="{% url 'bsc_csit_program' %}" class="sidebar-link">BSc CSIT Program</a>
+        <a href="{% url 'plus2_program' %}" class="sidebar-link">Plus 2 Program</a>
+        <a href="{% url 'bbs_program' %}" class="sidebar-link">BBS Program</a>
+        <a href="{% url 'notice' %}" class="sidebar-link">Notices</a>
+        <a href="{% url 'faq' %}" class="sidebar-link">FAQs</a>
+        <a href="{% url 'applyonline' %}" class="sidebar-link">Apply Online</a>
+        <a href="{% url 'gallary' %}" class="sidebar-link">Gallery</a>
+        <a href="{% url 'contact' %}" class="sidebar-link">Contact</a>
+    </div>
+    
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <h1>About +2 and Syllabus</h1>
+
+        <!-- Main Image Section -->
+        <div class="main-image-container" data-aos="fade-right">
+            <img src="{% static 'images/college2.jpg' %}" alt="Plus 2 Program" class="main-image">
+        </div>
+
+        <p class="long-paragraph" data-aos="fade-up">
+            The +2 program is an intermediate education program that prepares students for further studies in undergraduate courses. It focuses on providing foundational knowledge in various streams like Science, Commerce, and Arts.
+            <br>
+            The program typically lasts for two years and is essential for students who wish to pursue higher education in various disciplines, including engineering, medicine, business, and humanities.
+        </p>
+
+        <!-- Mission of +2 Program Section -->
+        <h2 class="section-title">Mission of +2 Program</h2>
+        <ol class="content-list">
+            <li>To provide a comprehensive understanding of core subjects in the chosen stream.</li>
+            <li>To prepare students for higher education in diverse fields of study.</li>
+            <li>To foster critical thinking, creativity, and problem-solving skills among students.</li>
+        </ol>
+
+        <!-- Scope of +2 Program Section -->
+        <h2 class="section-title">Scope of +2 Program</h2>
+        <ol class="content-list">
+            <li>+2 graduates have opportunities to pursue undergraduate programs in various fields, such as engineering, medicine, business, and more.</li>
+            <li>Graduates can also opt for vocational courses or enter the job market after completing the program.</li>
+        </ol>
+
+        <!-- Eligibility Criteria Section -->
+        <h2 class="section-title">Eligibility Criteria</h2>
+        <ol class="content-list">
+            <li>Completion of secondary education (10th grade) or equivalent.</li>
+            <li>Minimum required marks for admission (varies by institution).</li>
+        </ol>
+
+        <!-- BCA Syllabus Section -->
+        <h2 class="section-title">+2 Program Syllabus</h2>
+        <div class="syllabus-content">
+            <h4 class="section-title">Science Stream</h4>
+            <ul class="course-list">
+                <li>Physics</li>
+                <li>Chemistry</li>
+                <li>Mathematics/Biology</li>
+                <li>English</li>
+                <li>Computer Science</li>
+            </ul>
+
+            <h4 class="section-title">Commerce Stream</h4>
+            <ul class="course-list">
+                <li>Business Studies</li>
+                <li>Accountancy</li>
+                <li>Economics</li>
+                <li>English</li>
+                <li>Mathematics</li>
+            </ul>
+
+            <h4 class="section-title">Arts Stream</h4>
+            <ul class="course-list">
+                <li>English</li>
+                <li>Psychology</li>
+                <li>Political Science</li>
+                <li>History</li>
+                <li>Economics</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

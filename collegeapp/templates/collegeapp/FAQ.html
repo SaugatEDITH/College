@@ -1,0 +1,23 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/faq.css' %}">
+{% endblock subcss %}
+
+{% block content %}
+<section id="faq-header">
+    <h2>Frequently Asked Questions</h2>
+    <p>Find answers to the most common questions about our college.</p>
+</section>
+
+<div class="faq-container">
+    {% for item in datas %}
+    <div class="faq-item">
+        <h3 class="question">{{item.question}}</h3>
+        <p class="answer">{{item.answer}}
+        </p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

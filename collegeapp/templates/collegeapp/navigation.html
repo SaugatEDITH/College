@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/navigation.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Upper Container at the very top -->
+    <div class="upper-container">
+        <div class="clipdesign animate-gradient">
+            <div class="buttoncontainerupper">
+                <a href="{% url 'downloads' %}">
+                    <button class="button-22" role="button">
+                        <i class="fa-solid fa-download"></i> Download
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="upperdetailswrapper">
+            <div class="upperlogocontainer">
+                <img class="rubber-stamp" src="{% static 'images/logo.png' %}" class="logo" alt="Logo"
+                    style="height: 100px; width: 100px;">
+                <div class="nameandslogan">
+                    <p>Hetauda City College</p>
+                    <span>First IT college in Makawanpur</span>
+                </div>
+            </div>
+            <div class="info-container">
+                <div class="contact-details">
+                    <h3 class="text">Call Support</h3>
+                    <p><span>057-526660</span></p>
+                </div>
+                <div class="location-details">
+                    <h3 class="text">Location</h3>
+                    <p><span>Hetauda - 5, Piple, Makawanpur</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Section -->
+    <section class="navigation">
+        <div class="nav-container">
+            <nav>
+                <div class="mobile-logo-container">
+                    <img class="rubber-stamp" src="{% static 'images/logo.png' %}" class="mobile-logo" alt="Logo">
+                    <p>HCC</p>
+                </div>
+                <div class="nav-mobile">
+                    <a id="nav-toggle" href="#"><span></span></a>
+                </div>
+                <ul class="nav-list">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">About</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="{% url 'ourteam' %}">Faculty Members</a></li>
+                            <li><a href="{% url 'faq' %}">FAQs</a></li>
+                            <li><a href="{% url 'leadership' %}">Leadership</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">University Programs</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="{% url 'bsc_csit_program' %}">Bsc.CSIT</a></li>
+                            <li><a href="{% url 'bca_program' %}">BCA</a></li>
+                            <li><a href="{% url 'plus2_program' %}">+2</a></li>
+                            <li><a href="{% url 'bbs_program' %}">BBS</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'notice' %}">Notice</a></li>
+                    <li><a href="{% url 'gallary' %}">Gallery</a></li>
+                    <li><a href="#">QAA</a></li>
+
+
+                    <a href="{% url 'applyonline' %}">
+                        <span class="popping-span">Apply Now</span>
+                    </a>
+                    <li><a href="#">Admission</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="{% url 'faq' %}">FAQs on Bsc.CSIT, BCA, +2, BBS</a></li>
+                            <li><a href="{% url 'admission_procedure' %}">Admission Procedure</a></li>
+                            <li><a href="{% url 'applyonline' %}">Apply Online</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Research</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="#">Research Activity</a></li>
+                            <li><a href="{% url 'blogs' %}">Blogs</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    </div>
+
+    <script>
+        (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                // For handling dropdown toggle on click
+                const links = document.querySelectorAll('nav ul li a:not(:only-child)');
+                links.forEach(function (link) {
+                    link.addEventListener('click', function (e) {
+                        const dropdown = this.nextElementSibling;
+                        if (dropdown && dropdown.classList.contains('nav-dropdown')) {
+                            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                            document.querySelectorAll('.nav-dropdown').forEach(function (item) {
+                                if (item !== dropdown) {
+                                    item.style.display = 'none';
+                                }
+                            });
+                        }
+                        e.stopPropagation();
+                    });
+                });
+
+                document.documentElement.addEventListener('click', function () {
+                    document.querySelectorAll('.nav-dropdown').forEach(function (dropdown) {
+                        dropdown.style.display = 'none';
+                    });
+                });
+
+                const navToggle = document.getElementById('nav-toggle');
+                if (navToggle) {
+                    navToggle.addEventListener('click', function () {
+                        const navUl = document.querySelector('nav ul');
+                        navUl.style.display = navUl.style.display === 'block' ? 'none' : 'block';
+                        document.querySelector('nav').classList.toggle('active');
+                    });
+
+                    navToggle.addEventListener('click', function () {
+                        this.classList.toggle('active');
+                    });
+                }
+            });
+        })();
+
+
+    </script>
+    <script src="https://kit.fontawesome.com/ca89abdfb6.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

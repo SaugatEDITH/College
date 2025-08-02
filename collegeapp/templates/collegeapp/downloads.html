@@ -1,0 +1,38 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/download.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock subcss %}
+
+{% block content %}
+<div class="download-header">
+    <h1 class="download-title">Download Center</h1>
+    <p class="download-quote">"Knowledge is power. Information is liberating. Education is the premise of progress." - Kofi Annan</p>
+</div>
+
+<div class="downloads-container">
+    <!-- Sample Document Card -->
+     {% if files %}
+     {% for file in files %}
+     <div class="download-card">
+        <i class="{{ file.get_icon_class }} file-icon"></i>
+        <div class="file-name">{{ file.title }}</div>
+        <div class="file-info">
+            <span class="file-type">{{file.get_extension|upper}}</span> • <span class="file-size">{{ file.get_size|filesizeformat }}</span>
+        </div>
+        <a href="{{ file.file.url }}" class="download-btn" download>
+            <i class="fas fa-download"></i> Download
+        </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="download-header">
+        <h1 class="download-title">No Download Available</h1>
+        <p class="download-quote">"Knowledge is power. Information is liberating. Education is the premise of progress." - Kofi Annan</p>
+    </div>
+    {% endif %}
+   
+</div>
+{% endblock content %}

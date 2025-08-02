@@ -1,0 +1,32 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<link rel="stylesheet" href="{% static 'css/OurTeam.css' %}">
+{% endblock subcss %}
+
+{% block content %}
+<section id="about-home">
+	<h2>Our Team</h2>
+</section>
+
+<div class="team-container">
+	<div class="members-wrapper">
+		{% if not members %}
+		<div class="no-staff-message">
+			<h2>No Staff Added</h2>
+		</div>
+		{% else %}
+		<div class="team-grid">
+			{% for staff in members %}
+			<div class="team-card">
+				<h3 class="name">{{ staff.get_salutation }} {{ staff.name }}</h3>
+				<p class="position">{{ staff.position }}</p>
+			</div>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock content %}

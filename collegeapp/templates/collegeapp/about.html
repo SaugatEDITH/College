@@ -1,0 +1,105 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %} ">
+{% endblock subcss %}
+	<!-- Hero section starts from here -->
+	 {% block content %}
+	 <section id="about-home">
+		<h2>
+			About Hetauda City College
+		</h2>
+	</section>
+	
+
+
+	<!-- About section starts from here -->
+	<section id="about-container">
+		<div class="about-img">
+			<img src="{% static 'images/project.svg' %}" alt="">
+		</div>
+		<div class="about-text">
+			<h2>
+				Welcome to Hetauda city College, Enhance your skills with best online courses.
+			</h2>
+			<p>
+				You can start and finish one of these popular courses in under a day - for free! Check out the list below.. Take the course for free.
+			</p>
+
+			<div class="about-fe">
+				<img src="{% static 'images/fe1.png' %}" alt="">
+				<div class="fe-text">
+					<h5>400+ Courses</h5>
+					<p>
+						You can start and finish one of these popular courses in under our site
+					</p>
+				</div>
+			</div>
+			<div class="about-fe">
+				<img src="{% static 'images/fe2.png' %}" alt="">
+
+				<div class="fe-text">
+					<h5>Lifetime Access</h5>
+					<p>
+						You can start and finish one of these popular courses in under our site
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- About section ends from here -->
+
+
+	<!-- Features section starts from here -->
+	<section id="features">
+		<h1>Awesome Features</h1>
+		<p>Replenish man have thing gathering lights yielding shall you</p>
+
+		<div class="fea-base">
+			<div class="fea-box">
+				<i class="fas fa-graduation-cap"></i>
+				<h3>Scholorship Facility</h3>
+				<p>
+					One make creepeth, man bearing theira firmament won't great heaven
+				</p>
+			</div>
+
+			<div class="fea-box">
+				<i class="fa-solid fa-book-bookmark"></i>
+				<h3>Dell Online Course</h3>
+				<p>
+					One make creepeth, man bearing theira firmament won't great heaven
+				</p>
+			</div>
+
+			<div class="fea-box">
+				<i class="fas fa-award"></i>
+				<h3>Global Certification</h3>
+				<p>
+					One make creepeth, man bearing theira firmament won't great heaven
+				</p>
+			</div>
+		</div>
+	</section>
+	<!-- Features section ends from here -->
+
+
+	<!-- Trust section starts from here -->
+	<section id="trust">
+		<h1>Trusted By</h1>
+		<p>Replenish man have thing gathering lights yielding shall you</p>
+		<div class="trust-img">
+			<img src="{% static 'images/Education-Ministry.jpg' %}" alt="">
+			<img src="{% static 'images/TUlogo.png' %}" alt="">
+			<img src="{% static 'images/NTCLogo.svg' %}" alt="">
+			<img src="{% static 'images/DRC.png' %}" alt="">
+			<img src="{% static 'images/worldlink-logo.svg' %}" alt="">
+			<img src="{% static 'images/HSM.png' %}" alt="">
+		</div>
+	</section>
+	<!-- Trust section ends from here -->
+
+	 {% endblock content %}
+	
+
+	

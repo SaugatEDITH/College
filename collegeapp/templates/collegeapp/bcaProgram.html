@@ -1,0 +1,175 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %} ">
+<link rel="stylesheet" href="{% static 'css/programs.css' %} ">
+{% endblock subcss %}
+<!-- Hero section starts from here -->
+{% block content %}
+<div class="grid-container">
+    <!-- Sidebar -->
+    <div class="sidebar" data-aos="fade-up">
+        <a href="{% url 'home' %}" class="sidebar-link">Home</a>
+        <a href="{% url 'about' %}" class="sidebar-link">About HCC</a>
+        <a href="{% url 'leadership' %}" class="sidebar-link">Leadership</a>
+        <a href="{% url 'ourteam' %}" class="sidebar-link">Our Team</a>
+        <a href="{% url 'bca_program' %}" class="sidebar-link">BCA Program</a>
+        <a href="{% url 'bsc_csit_program' %}" class="sidebar-link">BSc CSIT Program</a>
+        <a href="{% url 'plus2_program' %}" class="sidebar-link">Plus 2 Program</a>
+        <a href="{% url 'bbs_program' %}" class="sidebar-link">BBS Program</a>
+        <a href="{% url 'notice' %}" class="sidebar-link">Notices</a>
+        <a href="{% url 'faq' %}" class="sidebar-link">FAQs</a>
+        <a href="{% url 'applyonline' %}" class="sidebar-link">Apply Online</a>
+        <a href="{% url 'gallary' %}" class="sidebar-link">Gallery</a>
+        <a href="{% url 'contact' %}" class="sidebar-link">Contact</a>
+    </div>
+    
+    
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <h1>About BCA and Syllabus</h1>
+
+        <!-- Main Image Section -->
+        <div class="main-image-container" data-aos="fade-right">
+            <img src="{% static 'images/college1.jpg' %}" alt="BCA Program" class="main-image">
+        </div>
+
+        <p class="long-paragraph" data-aos="fade-up">
+            BCA (Bachelor of Computer Application) is a popular undergraduate program in Nepal that focuses on the study
+            of computer science and applications. The program typically takes four years to complete and covers a wide
+            range of topics, including programming, data structures, algorithms, database management, computer networks,
+            and web development.
+            <br>
+            The curriculum is designed to provide students with a solid foundation in computer science and to prepare
+            them for a variety of careers in the field, such as software development, web design, database management,
+            and IT consulting. Many BCA graduates in Nepal go on to work in software development companies, IT
+            consulting firms, or government organizations.
+        </p>
+
+        <!-- Mission of BCA Section -->
+        <h2 class="section-title">Mission of BCA</h2>
+        <ol class="content-list">
+            <li>To provide quality education in the field of computer applications.</li>
+            <li>To foster problem-solving skills and technical proficiency in students.</li>
+            <li>To enhance students' employability by equipping them with essential IT skills.</li>
+            <li>To prepare students for higher education or a successful career in the IT industry.</li>
+        </ol>
+
+        <!-- Scope of BCA Section -->
+        <h2 class="section-title">Scope of BCA</h2>
+        <ol class="content-list">
+            <li>BCA graduates have a wide range of career options in software development, database administration, and IT consulting.</li>
+            <li>They can pursue higher education such as MSc, MCA, or even MBA in Information Technology.</li>
+            <li>With rapid advancements in technology, BCA professionals are in high demand across various sectors, including healthcare, finance, and education.</li>
+            <li>Graduates can work as programmers, web developers, system analysts, and more in leading IT firms.</li>
+        </ol>
+
+        <!-- Applications of BCA Section -->
+        <h2 class="section-title">Applications of BCA</h2>
+        <ol class="content-list">
+            <li>Software Development: Developing applications and software for various industries.</li>
+            <li>Web Development: Designing and developing websites and web applications.</li>
+            <li>Database Management: Managing and maintaining databases for organizations.</li>
+            <li>Networking: Setting up and managing computer networks for businesses and educational institutions.</li>
+            <li>IT Consulting: Providing advice to businesses on technology solutions and IT strategies.</li>
+        </ol>
+
+        <!-- Eligibility Criteria Section -->
+        <h2 class="section-title">Eligibility Criteria</h2>
+        <ol class="content-list">
+            <li>Completion of higher secondary education (12th grade) or equivalent in any stream (Science, Commerce, Arts).</li>
+            <li>A minimum of 50% marks in the 12th grade (varies by institution).</li>
+            <li>Proficiency in mathematics at the secondary level is preferred.</li>
+            <li>Some institutions may require an entrance exam for admission.</li>
+        </ol>
+
+        <!-- Admission Criteria Section -->
+        <h2 class="section-title">Admission Criteria</h2>
+        <ol class="content-list">
+            <li>Submit the completed application form along with the necessary documents (academic certificates, identity proof, etc.).</li>
+            <li>Appear for the entrance examination (if applicable) or undergo a personal interview as per the institution's requirements.</li>
+            <li>Shortlisted candidates will be notified for counseling and admission confirmation.</li>
+            <li>Final admission will be based on merit and the candidate's performance in the entrance exam or interview.</li>
+        </ol>
+
+        <!-- BCA Syllabus Section -->
+        <h2 class="section-title">BCA Syllabus</h2>
+        <div class="syllabus-content">
+            <h4 class="section-title">1st Semester</h4>
+            <ul class="course-list">
+                <li>Mathematics-I</li>
+                <li>Digital Logics</li>
+                <li>Society and Technology</li>
+                <li>English-I</li>
+                <li>Computer Fundamentals</li>
+            </ul>
+
+            <h4 class="section-title">2nd Semester</h4>
+            <ul class="course-list">
+                <li>Mathematics-II</li>
+                <li>Microprocessor & Computer Architecture</li>
+                <li>C Programming</li>
+                <li>English-II</li>
+                <li>Financial Accounting</li>
+            </ul>
+
+            <h4 class="section-title">3rd Semester</h4>
+            <ul class="course-list">
+                <li>Data Structure and Algorithms</li>
+                <li>OOP in JAVA</li>
+                <li>Web Technology</li>
+                <li>Probability & Statistics</li>
+                <li>System Analysis & Design</li>
+            </ul>
+
+            <h4 class="section-title">4th Semester</h4>
+            <ul class="course-list">
+                <li>Operating System</li>
+                <li>Numerical Methods</li>
+                <li>Software Engineering</li>
+                <li>Scripting Language</li>
+                <li>Database Management System</li>
+                <li>Project I</li>
+            </ul>
+
+            <h4 class="section-title">5th Semester</h4>
+            <ul class="course-list">
+                <li>MIS & e-Business</li>
+                <li>DotNet Technology</li>
+                <li>Computer Networking</li>
+                <li>Introduction to Management</li>
+                <li>Computer Graphics & Animation</li>
+            </ul>
+
+            <h4 class="section-title">6th Semester</h4>
+            <ul class="course-list">
+                <li>Mobile Programming</li>
+                <li>Distributed System</li>
+                <li>Applied Economics</li>
+                <li>Advanced Java Programming</li>
+                <li>Network Programming</li>
+                <li>Project II</li>
+            </ul>
+
+            <h4 class="section-title">7th Semester</h4>
+            <ul class="course-list">
+                <li>Cyber Law & Professional Ethics</li>
+                <li>Cloud Computing</li>
+                <li>Internships</li>
+                <li>Elective I</li>
+                <li>Elective II</li>
+            </ul>
+
+            <h4 class="section-title">8th Semester</h4>
+            <ul class="course-list">
+                <li>Operations Research</li>
+                <li>Project III</li>
+                <li>Elective III</li>
+                <li>Elective IV</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

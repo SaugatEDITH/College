@@ -1,0 +1,24 @@
+#news-header {
+    background: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)), url('/static/images/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0 60px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+#news-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+@media (max-width: 768px) {
+    #news-header {
+        padding: 80px 0 40px;+
+    }
+
+    #news-header h1 {
+        font-size: 2rem;
+    }
+}

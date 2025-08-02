@@ -1,0 +1,97 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+<link rel="stylesheet" href="{% static 'css/programs.css' %}">
+{% endblock subcss %}
+{% block content %}
+<div class="grid-container">
+    <!-- Sidebar -->
+    <div class="sidebar" data-aos="fade-up">
+        <a href="{% url 'about' %}" class="sidebar-link">About HCC</a>
+        <a href="{% url 'leadership' %}" class="sidebar-link">Leadership</a>
+        <a href="{% url 'ourteam' %}" class="sidebar-link">Our Team</a>
+        <a href="{% url 'bca_program' %}" class="sidebar-link">BCA Program</a>
+        <a href="{% url 'bsc_csit_program' %}" class="sidebar-link">BSc CSIT Program</a>
+        <a href="{% url 'plus2_program' %}" class="sidebar-link">Plus 2 Program</a>
+        <a href="{% url 'bbs_program' %}" class="sidebar-link">BBS Program</a>
+        <a href="{% url 'notice' %}" class="sidebar-link">Notices</a>
+        <a href="{% url 'faq' %}" class="sidebar-link">FAQs</a>
+        <a href="{% url 'applyonline' %}" class="sidebar-link">Apply Online</a>
+        <a href="{% url 'gallary' %}" class="sidebar-link">Gallery</a>
+        <a href="{% url 'contact' %}" class="sidebar-link">Contact</a>
+    </div>
+    
+    
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <h1>About BBS and Syllabus</h1>
+
+        <!-- Main Image Section -->
+        <div class="main-image-container" data-aos="fade-right">
+            <img src="{% static 'images/college3.jpg' %}" alt="BBS Program" class="main-image">
+        </div>
+
+        <p class="long-paragraph" data-aos="fade-up">
+            BBS (Bachelor of Business Studies) is an undergraduate program that focuses on business concepts, management skills, and the practical aspects of running a business. It is designed for students who want to pursue a career in business, management, or entrepreneurship.
+            <br>
+            The BBS program prepares students for leadership roles and equips them with the tools required for successful business ventures.
+        </p>
+
+        <!-- Mission of BBS Program Section -->
+        <h2 class="section-title">Mission of BBS Program</h2>
+        <ol class="content-list">
+            <li>To impart comprehensive knowledge in business and management.</li>
+            <li>To develop critical thinking and problem-solving abilities in students.</li>
+            <li>To prepare students for careers in business and management sectors.</li>
+        </ol>
+
+        <!-- Scope of BBS Program Section -->
+        <h2 class="section-title">Scope of BBS Program</h2>
+        <ol class="content-list">
+            <li>BBS graduates can work in diverse fields like finance, marketing, human resources, and operations management.</li>
+            <li>Graduates can also pursue MBA or other higher education programs in business and management.</li>
+        </ol>
+
+        <!-- Eligibility Criteria Section -->
+        <h2 class="section-title">Eligibility Criteria</h2>
+        <ol class="content-list">
+            <li>Completion of higher secondary education (12th grade) or equivalent in any stream.</li>
+            <li>Minimum marks required for admission (varies by institution).</li>
+        </ol>
+
+        <!-- BBS Syllabus Section -->
+        <h2 class="section-title">BBS Syllabus</h2>
+        <div class="syllabus-content">
+            <h4 class="section-title">1st Year</h4>
+            <ul class="course-list">
+                <li>Principles of Management</li>
+                <li>Business Communication</li>
+                <li>Financial Accounting</li>
+                <li>Business Mathematics</li>
+                <li>Microeconomics</li>
+            </ul>
+
+            <h4 class="section-title">2nd Year</h4>
+            <ul class="course-list">
+                <li>Organizational Behavior</li>
+                <li>Cost Accounting</li>
+                <li>Macroeconomics</li>
+                <li>Marketing Management</li>
+                <li>Human Resource Management</li>
+            </ul>
+
+            <h4 class="section-title">3rd Year</h4>
+            <ul class="course-list">
+                <li>Business Law</li>
+                <li>Business Ethics</li>
+                <li>Financial Management</li>
+                <li>Entrepreneurship</li>
+                <li>Project Work</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

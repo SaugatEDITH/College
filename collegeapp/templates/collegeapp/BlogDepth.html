@@ -1,0 +1,26 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %} ">
+<link rel="stylesheet" href="{% static 'css/blog.css' %} ">
+<link rel="stylesheet" href="{% static 'css/post.css' %} ">
+{% endblock subcss %}
+
+{% block content %}
+<!-- Post body starts from here -->
+<div id="blog-container">
+	<div class="blogs blogpost">
+		<div class="post">
+			{% if blog.image %}
+			<img src="{{blog.image.url}}" alt="{{ blog.title }}" />
+			{% else %}
+			<img src="{% static 'images/noimage.jpeg' %}" alt="Default image">
+			{% endif %}
+			<h3>{{ blog.title }}</h3>
+			<p id="contents" >{{ blog.content }}</p>
+			<a href="{% url 'blogs' %}">Back</a>
+		</div>
+	</div>
+</div>
+<!-- Post body ends from here -->
+{% endblock content %}

@@ -1,0 +1,52 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/admission.css' %}">
+{% endblock subcss %}
+{% block content %}
+<div class="grid-container">
+    <!-- Sidebar -->
+    <div class="sidebar" data-aos="fade-up">
+        <a href="{% url 'about' %}" class="sidebar-link">About HCC</a>
+        <a href="{% url 'leadership' %}" class="sidebar-link">Leadership</a>
+        <a href="{% url 'ourteam' %}" class="sidebar-link">Our Team</a>
+        <a href="{% url 'bca_program' %}" class="sidebar-link">BCA Program</a>
+        <a href="{% url 'bsc_csit_program' %}" class="sidebar-link">BSc CSIT Program</a>
+        <a href="{% url 'plus2_program' %}" class="sidebar-link">Plus 2 Program</a>
+        <a href="{% url 'bbs_program' %}" class="sidebar-link">BBS Program</a>
+        <a href="{% url 'notice' %}" class="sidebar-link">Notices</a>
+        <a href="{% url 'faq' %}" class="sidebar-link">FAQs</a>
+        <a href="{% url 'applyonline' %}" class="sidebar-link">Apply Online</a>
+        <a href="{% url 'gallary' %}" class="sidebar-link">Gallery</a>
+        <a href="{% url 'contact' %}" class="sidebar-link">Contact</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <h1>Admission Procedure</h1>
+        <!-- <p class="last-updated">Last updated on: May 30, 2020</p> -->
+
+        <!-- Admission Details Section -->
+        <div class="admission-content" data-aos="fade-up">
+            <h2>Bachelor of Science in Computer Science and IT (BSc CSIT)</h2>
+            <p>
+                Candidates must have completed 10+2 or equivalent with Physics, Chemistry, and Mathematics. 
+                A minimum grade of C in each subject is required. A-Level students must have a minimum grade of D in Physics, Chemistry, and Mathematics.
+            </p>
+
+            <h2>Bachelor of Computer Application (BCA)</h2>
+            <p>
+                Applicants should have completed 10+2 or equivalent from a recognized board or institution. 
+                A minimum of 45% (second division) or a C grade in all subjects is required.
+            </p>
+
+            <h2>Bachelor of Business Studies (BBS)</h2>
+            <p>
+                Applicants should have secured at least a D+ grade in all subjects in their 10+2 or equivalent studies. 
+                Admission will be granted based on an interview with eligible candidates.
+            </p>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

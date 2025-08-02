@@ -1,0 +1,22 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<link rel="stylesheet" href="{% static 'css/about.css' %} ">
+{% endblock subcss %}
+{% block content %}
+<!-- Hero section starts from here -->
+<section id="about-home">
+	<h2>
+		Courses
+	</h2>
+</section>
+<!-- Hero section ends from here -->
+
+	<!-- Courses section starts from here -->
+{% include "collegeapp/Popular-Courses.html" %}
+<!-- Courses section ends from here -->
+
+{% endblock content %}
+	
+
+	

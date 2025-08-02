@@ -1,0 +1,107 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+h1 {
+    font-weight: 600;
+    color: black;
+    width: max-content;
+    margin-bottom: 1rem;
+    border-bottom: 5px solid #f44236;
+}
+
+h1:hover {
+    cursor: pointer;
+    color: #2f358f;
+}
+
+.gridd_container {
+    position: relative;
+    grid-gap: 0.2rem;
+    color: black;
+    display: grid;
+    grid-template-columns: 0.9fr 2fr;
+    grid-template-rows: 1.5fr;
+    grid-template-areas: "sidebar main";
+}
+
+.mainn {
+    text-align: justify;
+    padding: 20px;
+    grid-area: main;
+}
+
+.sidebar {
+    background: #2980b9;
+    grid-area: sidebar;
+}
+
+/*responsive grid for phone starts*/
+
+@media only screen and (max-width: 768px) {
+    .gridd_container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
+        grid-template-areas:
+            "sidebar"
+            "main";
+    }
+
+    .mainn {
+        grid-area: main;
+    }
+
+    .sidebar {
+        display: none;
+    }
+}
+
+/*responsive grid for phone ends*/
+/*responsive grid for PC starts*/
+@media all and (min-width: 800px) {
+    .mainn {
+        grid-area: main;
+        margin-right: 12rem;
+    }
+
+    .sidebar {
+        background: #fff;
+        margin-left: 12rem;
+        margin-top: 25px;
+        grid-area: sidebar;
+    }
+}
+
+/*responsive grid for PC ends*/
+
+/*Image management CSS starts*/
+.main_img_div {
+    width: 100%;
+}
+
+.main_img {
+    object-fit: contain;
+    height: 20rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/*Image management CSS ends*/
+
+/*After photo CSS starts*/
+.sub_titles {
+    font-weight: 700;
+    cursor: pointer;
+    color: #2f358f;
+}
+
+.sub_titles:hover {
+    color: red;
+}
+
+/*After photo CSS ends*/
+.main_img:hover {
+    border-radius: 20px;
+    transition-duration: 0.5s;
+    transform: scale(1.1) rotate(0deg);
+}

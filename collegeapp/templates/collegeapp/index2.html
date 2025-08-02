@@ -1,0 +1,285 @@
+{% extends "collegeapp/base.html" %}
+{% load static %}
+{% block subcss %}
+<style>
+	.error-message-js {
+		color: red;
+		font-size: small;
+	}
+
+	.input-error {
+		border-color: red;
+	}
+
+	.error-placeholder {
+		height: 1em;
+	}
+</style>
+{% endblock subcss %}
+{% block content %}
+<div class="toast-container"></div>
+{% if messages %}
+{% for message in messages %}
+<script>
+	showToast("{{ message|escapejs }}", "{% if 'Success' in message %}success{% else %}error{% endif %}");
+	// Toaster
+	function showToast(message, type = "success") {
+		const toastContainer = document.querySelector(".toast-container");
+
+		const toast = document.createElement("div");
+		toast.classList.add("toast", type);
+
+		toast.innerHTML = `
+	<div class="toast-content">
+		<i class="fa-solid ${getIcon(type)}"></i>  <!-- Ensure fa-solid is used -->
+		<div class="message">
+			<span class="text text-1">${capitalize(type)}</span>
+			<span class="text text-2">${message}</span>
+		</div>
+	</div>
+	<i class="fa-solid fa-xmark close"></i>
+	<div class="progress active"></div>
+`;
+
+		toastContainer.appendChild(toast);
+		let showToast = setTimeout(() => {
+			void toast.offsetHeight;
+			toast.classList.add("active");
+		}, 1);
+
+		const progress = toast.querySelector(".progress");
+		const closeIcon = toast.querySelector(".close");
+
+		// Auto-remove toast after 5s
+		const timer1 = setTimeout(() => {
+			toast.classList.remove("active");
+		}, 5000);
+
+		const timer2 = setTimeout(() => {
+			progress.classList.remove("active");
+			setTimeout(() => toast.remove(), 400);
+		}, 5300);
+
+		// Manual close
+		closeIcon.addEventListener("click", () => {
+			toast.classList.remove("active");
+			clearTimeout(timer1);
+			clearTimeout(timer2);
+			clearTimeout(showToast);
+			setTimeout(() => toast.remove(), 400);
+		});
+	}
+
+	function getIcon(type) {
+		switch (type) {
+			case "success": return "fa-circle-check";
+			case "error": return "fa-circle-xmark";
+			case "warning": return "fa-triangle-exclamation";
+			case "info": return "fa-circle-info";
+			default: return "fa-circle-check";
+		}
+	}
+
+	function capitalize(str) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	}
+
+
+</script>
+{% endfor %}
+{% endif %}
+
+
+<!-- Hero section starts from here -->
+<section id="home">
+	<div class="video-overlay"></div>
+	<video autoplay muted loop id="hero-video">
+		<source src="{% static 'videos/hccvid.webm' %}" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+	<h2>
+		Enhance Your Future With <br /> Hetauda City College
+	</h2>
+	<p>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, ipsum laboriosam architecto tempora
+		explicabo ratione pariatur accusantium consequatur sed odit?
+	</p>
+	<div class="btn">
+		<a href="{% url 'about' %}" class="blue">Learn More</a>
+		<a href="#course" class="yellow">Visit Courses</a>
+	</div>
+</section>
+<!-- Hero section ends from here -->
+
+<!-- marquee slider starts -->
+{% if notices %}
+<div class="textslider">
+	<marquee behavior="" direction="">
+		<ul>
+			{% for notice in notices %}
+			<li><a href="notice/{{notice.slug}}/">{{notice.title}}</a></li>
+			{% endfor %}
+		</ul>
+	</marquee>
+</div>
+{% endif %}
+<!-- marquee slider ends -->
+<!-- Features section starts from here -->
+<section id="features">
+	<h1>Awesome Features</h1>
+	<p>Replenish man have thing gathering lights yielding shall you</p>
+
+	<div class="fea-base">
+		<div class="fea-box">
+			<i class="fas fa-graduation-cap"></i>
+			<h3>Scholorship Facility</h3>
+			<p>
+				One make creepeth, man bearing theira firmament won't great heaven
+			</p>
+		</div>
+
+		<div class="fea-box">
+			<i class="fa-solid fa-book-bookmark"></i>
+			<h3>Dell Online Course</h3>
+			<p>
+				One make creepeth, man bearing theira firmament won't great heaven
+			</p>
+		</div>
+
+		<div class="fea-box">
+			<i class="fas fa-award"></i>
+			<h3>Global Certification</h3>
+			<p>
+				One make creepeth, man bearing theira firmament won't great heaven
+			</p>
+		</div>
+	</div>
+</section>
+<!-- Features section ends from here -->
+
+
+<!-- Courses section starts from here -->
+{% include "collegeapp/Popular-Courses.html" %}
+<!-- Courses section ends from here -->
+
+
+<!-- Registration section starts from here -->
+
+<section id="registration">
+	<div class="reminder">
+		<p class="event_name">{{ timer.event_name }}</p>
+		<h1>Registration To Get It</h1>
+
+		<div class="time">
+			<div class="date" id="days">-- <br> Days</div>
+			<div class="date" id="hours">-- <br> Hours</div>
+			<div class="date" id="minutes">-- <br> Minutes</div>
+			<div class="date" id="seconds">-- <br> Seconds</div>
+		</div>
+	</div>
+
+	<div id="registration-from">
+		<center>
+			<div class="form">
+				<h3>Book an Appointment Now!</h3>
+				<form method="POST" action="/">
+					{% csrf_token %}
+					<input type="text" placeholder="Name" name="name" id="name" required>
+					<div class="error-placeholder">
+						<div id="name-error" class="error-message-js"></div>
+					</div>
+					<input type="email" placeholder="Email ID" name="email" id="email" required>
+					<div class="error-placeholder">
+						<div id="email-error" class="error-message-js"></div>
+					</div>
+					<input type="text" placeholder="Contact Number" name="phone" id="phone" required>
+					<div class="g-recaptcha" data-sitekey="6Lf70JcrAAAAAMEsDvMRqMDdOaRhBbWMr0U6afea"></div>
+					<div class="error-placeholder">
+						<div id="phone-error" class="error-message-js"></div>
+					</div>
+					<button type="submit" class="btn yellow">Submit Form</button>
+				</form>
+			</div>
+		</center>
+
+	</div>
+
+</section>
+<!-- Registration section ends from here -->
+
+
+<!-- Experts section starts from here -->
+<section id="experts">
+	<h1>Community Experts</h1>
+	<p>Replenish man have thing gathering lights yielding shall you</p>
+	<div class="expert-box">
+		{% for staff in members %}
+		<div class="profile">
+			<div class="skeleton profile-skeleton"></div>
+			{% if not staff.image %}
+			<img src="{% static 'images/noimage.jpeg' %}" alt="" loading="lazy" onload="this.classList.add('loaded')">
+			{% else %}
+			<img src="{{staff.image.url}}" alt="" loading="lazy" onload="this.classList.add('loaded')">
+			{% endif %}
+			<h6>{{staff.get_salutation}} {{staff.name}}
+				<p>{{staff.position}}</p>
+				<div class="pro-links">
+					<i class="fab fa-facebook"></i>
+					<i class="fab fa-instagram"></i>
+					<i class="fab fa-linkedin-in"></i>
+				</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+<!-- Experts section ends from here -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+	function startCountdown() {
+		function updateTimer() {
+			let now = new Date().getTime();
+			let distance = endTime - now;
+
+			if (distance <= 0) {
+				document.querySelector(".event_name").innerHTML = "Offer Expired!";
+				document.querySelector(".event_name").style.color = "red";
+				return;
+			}
+
+			let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			document.getElementById("days").innerHTML = `${days} <br> Days`;
+			document.getElementById("hours").innerHTML = `${hours} <br> Hours`;
+			document.getElementById("minutes").innerHTML = `${minutes} <br> Minutes`;
+			document.getElementById("seconds").innerHTML = `${seconds} <br> Seconds`;
+
+			setTimeout(updateTimer, 1000);
+		}
+
+		updateTimer();
+	}
+
+	{% if timer and timer.end_time %}
+	let rawDate = "{{ timer.end_time|date:'Y-m-d' }}T{{ timer.end_time|time:'H:i:s' }}Z";
+	console.log("End Time from Django:", rawDate);
+
+	let endTime = new Date(rawDate).getTime();
+	console.log("Parsed End Time:", endTime);
+
+	if (!isNaN(endTime)) {
+		startCountdown();
+	} else {
+		console.error("Invalid Date Format: ", rawDate);
+		document.querySelector(".event_name").innerHTML = "Countdown Error";
+	}
+	{% else %}
+	document.querySelector(".event_name").innerHTML = "No Active Offer";
+	{% endif %}
+</script>
+
+
+{% endblock content %}

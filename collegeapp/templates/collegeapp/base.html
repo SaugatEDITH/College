@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/x-icon" href="{% static 'images/whitelogo.png' %}">
+            <title>Hetauda City College</title>
+        
+            <!-- font Awesome CDN link -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        
+            <!-- External CSS -->
+            <link rel="stylesheet" href="{% static 'css/style.css' %} ">
+            {% block subcss %}
+            
+            {% endblock subcss %}
+        
+            <!-- JQuery CDN link -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        </head>
+    </head>
+    <body>
+
+
+    <!-- Nav  Start-->
+    {% include "collegeapp/navigation.html" %}
+    <!-- Nav End -->
+     {% block content %}
+     {% endblock content %}
+
+     {% include "collegeapp/footer.html" %}
+     <script>
+		// Show menu links on burger click
+		$('#menu-btn').click(function(){
+			$('nav .navigation ul').addClass('active')
+		});
+
+		// Hide navbar on click function
+		$('#menu-close').click(function(){
+			$('nav .navigation ul').removeClass('active')
+		});
+	</script>
+<script src="{% static 'js/index.js' %}"></script>
+    
+    </body>
+</html>
